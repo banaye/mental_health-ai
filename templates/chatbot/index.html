@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health AI</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💙Mental Health Support AI</h1>
+            <p>A safe place for your wellbeing</p>
+        </div>
+        <div class="crisis-banner" id="crisisbanner">
+            <h3>🆘 Crisis Support Resources</h3>
+            <p><strong>National Suicide Prevention Lifeline:</strong>
+            988 (US) <br>
+        <strong>Crisis Text Line:</strong>
+        Text Home to 741741 <br>
+        <strong>International:</strong>
+        <embed src="https://www.findahelpline.com">  <br>
+        <strong>Emergency:</strong> 911 
+    </p>
+        </div>
+        <div class="mood-selector">
+            <h3>How are you feeling today?</h3>
+            <div class="mood-grid">
+                <button class="mood-btn" onclick="selectMood('anxious')">
+                    <span class="mood-emoji">😰</span>
+                    <span class="mood-label">Anxious</span>
+                </button>
+
+                <button class="mood-bin" onclick="selectMood('sad')">
+                    <span class="mood-emoji">😥</span>
+                    <span class="mood-label">Sad</span>
+
+                </button>
+
+                  <button class="mood-bin" onclick="selectMood('stressed')">
+                    <span class="mood-emoji">😤</span>
+                    <span class="mood-label">Stressed</span>
+
+                </button>
+
+                  <button class="mood-bin" onclick="selectMood('lonely')">
+                    <span class="mood-emoji">😔</span>
+                    <span class="mood-label">Lonely</span>
+
+                </button>
+
+                  <button class="mood-bin" onclick="selectMood('angry')">
+                    <span class="mood-emoji">😠</span>
+                    <span class="mood-label">Angry</span>
+
+                </button>
+
+                  <button class="mood-bin" onclick="selectMood('overwhelmed')">
+                    <span class="mood-emoji">😵</span>
+                    <span class="mood-label">Overwhelmed</span>
+
+                </button>
+            </div>
+        </div>
+        <br>
+        <div class="chat-container" id="chatcontainer">
+            <div class="message ai">
+                <div class="message-content">
+                    Hello, I'm here to support you. How are you feeling today?
+                    <div class="timestamp" id="initialTime"></div>
+                </div>
+            </div>
+            <div class="typing-indicator" id="typinIndicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <div class="input-group">
+                <input type="text"
+                class="input-field"
+                 id="messageInput"
+                placeholder="Share what is on your mind..."
+                onkeypress="handleKeyPress(event)"
+                >
+                <button class="send-btn" onclick="sendMessage()" id="sendBtn">Send</button>
+
+               
+            </div>
+            <div class="quick-actions">
+                <button class="quick-btn" onclick="sendQuickMessage('breathing')">
+                    Breathing</button>
+                    <button class="quick-btn" onclick="sendQuickMessage('grounding')">
+                    🌍Grounding</button>
+                    <button class="quick-btn" onclick="sendQuickMessage('coping')">
+                    ✨Coping</button>
+                    <button class="quick-btn" onclick="sendQuickMessage('self care')">
+                    🆘Self care</button>
+
+            </div>
+        </div>
+        <div class="disclaimer">
+            This AI provides support but is not a replacement for professional
+            mental health care
+        </div>
+    </div>
+    <script src="{% static 'mental.js' %}"></script>
+</body>
+</html>
